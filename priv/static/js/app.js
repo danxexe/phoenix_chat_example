@@ -12,7 +12,7 @@ $(function(){
     return("<p><a href='#'>[" + username + "]</a>&nbsp; " + body +"</p>");
   }
 
-  socket.join("rooms", "lobby", {}, function(chan){
+  socket.join("rooms", "lobby", {user: $username.val()}, function(chan){
 
     $input.off("keypress").on("keypress", function(e) {
       if (e.keyCode == 13) {
