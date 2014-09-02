@@ -12,6 +12,11 @@ $(function(){
     return("<p><a href='#'>[" + username + "]</a>&nbsp; " + body +"</p>");
   }
 
+  var username = URI(document.location).search(true)['username'];
+  if (username != undefined) {
+    $username.val(username);
+  };
+
   socket.join("rooms", "lobby", {user: $username.val()}, function(chan){
 
     $input.off("keypress").on("keypress", function(e) {
