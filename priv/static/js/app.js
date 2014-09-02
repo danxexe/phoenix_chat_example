@@ -39,6 +39,11 @@ $(function(){
       var username = sanitize(msg.user || "anonymous");
       $messages.append("<br/><i>[" + username + " entered]</i>");
     });
+
+    chan.on("user:left", function(msg){
+      var username = sanitize(msg.user || "anonymous");
+      $messages.append("<br/><i>[" + username + " left]</i>");
+    });
   });
 });
 
